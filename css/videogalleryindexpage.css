@@ -1,0 +1,133 @@
+.video-gallery {
+  /* Increase the height as needed */
+  height: auto; /* Change this value to your desired height */
+  display: flex; /* Ensures the layout stays flexible */
+  flex-direction: column; /* Arrange items vertically */
+  overflow: hidden; /* Prevents overflow from the video section */
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .main-video {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  iframe {
+    width: 100%;
+    height: 400px;
+    border: none;
+  }
+  
+  #close-video {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .thumbnail-slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 10px 0;
+  }
+  
+  .thumbs {
+    display: flex;
+    transition: transform 0.4s ease;
+  }
+  
+  .thumb-item {
+    min-width: 150px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .thumb-item img {
+    width: 300px;
+    height: 200px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .thumb-item:hover img {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+  
+  button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  button.prev {
+    left: 0;
+  }
+  
+  button.next {
+    right: 0;
+  }
+  .play-button {
+    position: absolute; /* Position it over the iframe */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center the button */
+    width: 80px; /* Set a fixed width */
+    height: 80px; /* Set a fixed height */
+    color: white; /* White color for the play icon */
+    background-color: black; /* Solid black background */
+    border: none; /* No border */
+    border-radius: 50%; /* Make it round */
+    display: flex; /* Use flexbox to center the play icon */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+.play-button:hover {
+    background-color: white; /* Change background to white on hover */
+}
+
+/* Triangle for the play icon */
+.play-button::before {
+    content: ''; /* Create a pseudo-element */
+    width: 0; /* Set width to 0 for the triangle */
+    height: 0; /* Set height to 0 for the triangle */
+    border-left: 15px solid white; /* Create a triangle pointing right */
+    border-top: 10px solid transparent; /* Top part of the triangle */
+    border-bottom: 10px solid transparent; /* Bottom part of the triangle */
+    position: absolute; /* Position it absolutely within the button */
+}
+#videoDescription {
+  display: none; /* Initially hidden */
+  opacity: 0; /* Start with transparent */
+  transition: all 0.5s ease; /* Smooth transition for opacity and transform */
+  color: white; /* Text color */
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  padding: 10px; /* Padding for better visibility */
+  border-radius: 5px; /* Rounded corners */
+}
+
+.slide-in {
+  display: block; /* Make it visible */
+  opacity: 1; /* Fully opaque */
+  transform: translateX(20px); /* Slide in from right */
+}
+
+.slide-out {
+  opacity: 0; /* Fade out */
+  transform: translateX(0); /* Reset position */
+}

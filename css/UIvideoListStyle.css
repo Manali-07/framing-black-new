@@ -1,0 +1,207 @@
+.video-gallery-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 25vh;
+  /* Consumes 25% of the screen height */
+  overflow: hidden;
+  /* Hide overflow on both axes */
+  width: 100%;
+  /* Full width of the container */
+  padding-top: 20px;
+  /* Add space between bg-black and gallery */
+  padding-bottom: 20px;
+  /* Optional: Add space below the gallery as well */
+}
+
+.video-gallery {
+  display: flex;
+  gap: 10px;
+  /* Spacing between video thumbnails */
+  transition: transform 0.3s ease-in-out;
+  /* Smooth scroll transition */
+  width: max-content;
+  /* Allow dynamic width based on video count */
+}
+
+.video-item {
+  flex: 0 0 calc((100vw - 60px) / 3);
+  /* Ensure 3 videos are visible */
+  position: relative;
+  height: auto;
+  /* Full height of the gallery container */
+  cursor: pointer;
+}
+
+.video-thumbnail {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  /* Ensure thumbnails fill the video item area */
+  border-radius: 8px;
+  /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow */
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.arrow-left {
+  left: 0px;
+  /* Left arrow position */
+}
+
+.arrow-right {
+  right: 0px;
+  /* Right arrow position */
+}
+
+.arrow:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+
+.video-gallery::-webkit-scrollbar {
+  display: none;
+  /* Hides scrollbar in Chrome, Safari, and Opera */
+}
+
+.video-item:hover {
+  transform: scale(1.05);
+  /* Scale effect on hover */
+}
+
+.video-container {
+  position: relative;
+  /* Necessary for absolute positioning of the play button */
+  height: 100%;
+  /* Full height of video item */
+  display: flex;
+  /* Flexbox for centering */
+  justify-content: center;
+  /* Center horizontally */
+  align-items: center;
+  /* Center vertically */
+}
+
+/* Custom scrollbar styling */
+.video-gallery-container::-webkit-scrollbar {
+  height: 8px;
+  /* Height of the scrollbar */
+}
+
+.video-gallery-container::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Dark thumb for the scrollbar */
+  border-radius: 4px;
+  /* Rounded scrollbar thumb */
+}
+
+.video-gallery-container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  /* Light background for the scrollbar track */
+}
+
+.video-gallery-container {
+  -ms-overflow-style: none;
+  /* Hides scrollbar in IE and Edge */
+  scrollbar-width: thin;
+  /* Makes the scrollbar thin in Firefox */
+  scrollbar-color: rgba(0, 0, 0, 0.5) rgba(0, 0, 0, 0.1);
+  /* Color for Firefox */
+}
+.custom-play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.custom-play-button::before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 12px solid white;
+  /* This is the triangle's color */
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  display: block;
+}
+
+.video-item:hover .custom-play-button {
+  opacity: 1;
+  /* Fully opaque on hover */
+}
+
+.custom-video-container {
+  width: 100%;
+  max-width: 400px;
+  /* Adjust based on your desired max size */
+  margin: 0 auto;
+  /* Center the video within its container */
+  position: relative;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.custom-video-container iframe {
+  width: 100%;
+  height: auto;
+  border: none;
+}
+
+.video-player-section {
+  display: none;
+  /* Keep it hidden initially */
+  width: 100%;
+  /* Adjust width as needed for the layout */
+  height: auto;
+  /* Let the content determine the height */
+  padding: 20px 0;
+}
+
+#videoPlayerIframe {
+  width: 80%;
+  /* Increase the width of the iframe (80% of its parent) */
+  height: 50vh;
+  /* Set the height to 50% of the viewport height */
+  margin: 0 auto;
+  /* Center the iframe horizontally */
+  display: block;
+  /* Ensure it's treated as a block element */
+  border: none;
+  /* Remove default iframe border */
+}
+@media (max-width: 768px) {
+  .video-item {
+    flex: 0 0 100%; /* Make each video take the full width on smaller screens */
+    margin-bottom: 15px; /* Add spacing between video items */
+  }
+}
+
+/* Additional tweaks for very small screens */
+@media (max-width: 480px) {
+  .video-item {
+    flex: 0 0 100%; /* Full-width video items on small devices */
+    margin-bottom: 10px; /* Reduce the margin on smaller devices */
+  }
+}
